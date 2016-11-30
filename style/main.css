@@ -1,0 +1,15 @@
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+	background: linear-gradient(to top, #42aaff, #edf3fc);
+   /*background-image: url(../img/sky-10.gif);*/
+
+}
+img {
+  display: inline-block;
+  height: auto;
+  max-width: 100%;
+}
+.container{
+	margin-left: 40px;
+	margin-right: 40px;
+}

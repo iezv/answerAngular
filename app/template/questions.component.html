@@ -1,0 +1,110 @@
+<div class="container">
+<div class="row myrow" [hidden]="showHello">
+		<div class = "col-md-8 col-md-offset-2 col-xs-12">
+			<div><h1>Give please some time and answer our questions!</h1></div>
+			<div class="but"><button type="button" class="btn btn-primary btt" 
+			(click)="showQuestion1()">go to questions!</button></div>
+		</div>
+	</div>
+	<div class="row myrow" [hidden]="showQues1">
+		<div class = "col-md-8 col-md-offset-2 col-xs-12 text-center">
+			<div><h1>1 Enter your data, please!</h1></div>
+				<div>
+					<form class="form-horizontal">
+						<div class="form-group" >
+							<input type="text" class="form-control" id="firstname" #newFirstname
+							placeholder="First name">
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" id="lastname" #newLastname
+							placeholder="Last name">
+						</div>
+						<div class="form-group">
+							<input type="email" class="form-control" id="email" #newEmail
+                           	placeholder="Email">
+						</div>
+						<div class="form-group bat">
+							<button type="submit" class="btn btn-default btt" (click)="showQuestion2(newFirstname, newLastname, newEmail)">Go to next question...</button>
+						</div>
+					</form>
+				</div>
+		  </div>
+	</div>
+	<div class="row myrow" [hidden]="showQues2">
+		<div class = "col-md-8 col-md-offset-2 col-xs-12 text-center">
+			<div><h1>2 Do you like the weather today?</h1></div>
+			<div>
+				<form class="form-horizontal">
+					<label class="radio  myform">
+						<input type="radio" name="r1" ng-model="r1" value="yes"> YES
+					</label>
+					<label class="radio  myform">
+						<input type="radio" name="r1" ng-model="r1" value="no"> NO
+					</label>
+					<div class="but"><button type="button" class="btn btn-primary btt" (click)="showQuestion3()">Go to next question...</button></div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="row myrow" [hidden]="showQues3yes">
+		<div class = "col-md-8 col-md-offset-2 col-xs-12 text-center">
+			<div><h1>3 And why you don't like the weather?</h1>
+			</div>
+			<div>
+				<form class="form-horizontal">
+					<label class="checkbox  myform">
+						<input type="checkbox" id="checkbox1" value="option1"> It's raining! </label>
+					<label class="checkbox  myform">
+						<input type="checkbox" id="checkbox2" value="option2"> Very hot! </label>
+					<label class="checkbox  myform">
+						<input type="checkbox" id="checkbox3" value="option3"> Very cold! </label>
+					<label class="checkbox  myform">
+						<input type="checkbox" id="checkbox4" value="option4"> I find it difficult to answer ...</label>
+					<div class="but"><button type="button" class="btn btn-primary btt" (click)="showQuestion4()">Go to next question...</button>		</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="row myrow" [hidden]="showQues3no">
+		<div class = "col-md-8 col-md-offset-2 col-xs-12 text-center">
+			<div><h1>3 And why you like the weather?</h1>
+			</div>
+			<div class="text-center">
+				<form class="form">
+					<label class="checkbox  myform">
+						<input type="checkbox" id="checkbox1" value="option1"> Because the sun is shining!</label>
+					<label class="checkbox  myform">
+						<input type="checkbox" id="checkbox2" value="option2"> Because a warm day! </label>
+					<label class="checkbox  myform">
+						<input type="checkbox" id="checkbox3" value="option3"> Simply, I have a good mood! </label>
+					<div class="but">
+						<button type="button" class="btn btn-primary btt" (click)="showQuestion4()">Go to next question...</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+    <div class="row myrow" [hidden]="showQues4">
+		<div class = "col-md-8 col-md-offset-2 col-xs-12 text-center">
+			<div><h1>4 Write your wishes!</h1>
+			</div>
+			<div>
+				<form class="form">
+					<textarea class="form-control" rows="3"></textarea>
+					<div class="but">
+						<button type="button" class="btn btn-primary btt" (click)="result()">Go to result...</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="row myrow" [hidden]="showRes">
+		<div class = "col-md-8 col-md-offset-2 col-xs-12">
+			<div><h1>Thank you for your time!</h1></div>
+			<div><h2>Your answers:</h2></div>
+			<div class="but"><button type="button" class="btn btn-primary btt" (click)="exit()">Exit</button>
+		</div>
+	</div>
+</div>
+
