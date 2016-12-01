@@ -18,7 +18,7 @@
 			<div class="modal-content">		
 				<div><h1>?באיזו מידה אתה מרוצה מהשירות שקיבלת</h1></div>
 				<div class="rating">
-				<a class="star" href="#"><i class="fa fa-star push" aria-hidden="true"></i>
+				<a class="star" href="#" (click)="pushstar_1_1()"><i class="fa fa-star push" aria-hidden="true"></i>
 				</a>
 				<a  class="star" href="#" (click)="pushstar_1_2()">
 				<i class="fa fa-star" aria-hidden="true" 
@@ -44,8 +44,8 @@
 		<div class = "col-md-8 col-md-offset-2 col-xs-12 text-center">
 			<div class="modal-content">		
 				<div><h1>?למה לא מרוצה</h1></div>
-				<textarea class="form-control" rows="3"></textarea>
-                <button type="button" class="btn btn-primary btt" (click)="showQuestion2()">...הבא</button>
+				<textarea class="form-control" rows="3" #bad1></textarea>
+                <button type="button" class="btn btn-primary btt" (click)="showQuestion2(bad1)">...הבא</button>
 			</div>
 		</div>
 	</div>
@@ -54,7 +54,7 @@
 			<div class="modal-content">		
 				<div><h1>?באיזו מידה אתה מרוצה מזמן ההמתנה</h1></div>
 				<div class="rating">
-				<a class="star" href="#"><i class="fa fa-star push" aria-hidden="true"></i>
+				<a class="star" href="#" (click)="pushstar_2_1()"><i class="fa fa-star push" aria-hidden="true"></i>
 				</a>
 				<a  class="star" href="#" (click)="pushstar_2_2()">
 				<i class="fa fa-star" aria-hidden="true" 
@@ -80,8 +80,8 @@
 		<div class = "col-md-8 col-md-offset-2 col-xs-12 text-center">
 			<div class="modal-content">		
 				<div><h1>?למה לא מרוצה</h1></div>
-				<textarea class="form-control" rows="3"></textarea>
-                <button type="button" class="btn btn-primary btt" (click)="exitandsave()">...הבא</button>
+				<textarea class="form-control" rows="3" #bad2></textarea>
+                <button type="button" class="btn btn-primary btt" (click)="exitandsave(bad2)">...הבא</button>
 			</div>
 		</div>
 	</div>
@@ -90,7 +90,7 @@
 			<div class="modal-content text-center">
 				<div>
 					<h1>!תודה על תשומת הלב שלך</h1>
-					<button type="button" class="btn btn-primary btt">
+					<button type="button" class="btn btn-primary btt" (click)="exitbay()">
 					 יציאה
 					</button>
 			 	</div>
