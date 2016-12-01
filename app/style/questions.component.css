@@ -1,39 +1,56 @@
 h1{
 	margin-top: 30px;
 	margin-bottom: 30px;
-	color: #002137;
-	text-align: center;
+	color: #404d5a;
 }
-h2{
-	color: #002137;
-	text-align: center;
+
+p{
+	font-weight: bold;
+	color: #404d5a;
+	font-size: 16px;
 }
 .myrow{
-     margin-top: 60px;
+     margin-top: 20px;
 }
 
 .btt{
-	background: #002137;
+	background: #404d5a;
 	width: 200px;
-	font-size: 14px;
-	border-radius: 0;
-    text-transform: uppercase;
-    color: #ffffff;
+	height: 40px;
+	font-size: 20px;
+	font-weight: bold;
+	border-radius: 5px;
+    color: #d0d5db;
+    margin-top: 20px;
   }
-.but{
-	text-align: center;
-	margin-top: 30px;
-	margin-bottom: 30px;
+
+.btt:hover,
+.btt:focus{
+  color: #ffffff;
+  background-color: #333333;
+  border-color: #333333;
 }
-.form-control {
-	margin: 5px;
-	border-color: #002137;
-	border-radius: 0;
-	background: rgba(219, 235, 251, 0.8);
-	color: #002137;
-}
+
 .myform{
 	text-align: left;
 	margin-left: 40%;
 }
+.modal-content{
+	padding: 20px;
+}
+.fa{
+	font-size: 30px;
+}
 
+.fa-star{
+	color: #b0b7c6;
+}
+
+.fa-star:hover,
+.fa-star:focus{
+	color: #404d5a;
+}
+
+.push{
+	color: #404d5a;
+}

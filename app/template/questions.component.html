@@ -1,110 +1,102 @@
 <div class="container">
-<div class="row myrow" [hidden]="showHello">
+	<div class="row myrow" [hidden]="showHello">
 		<div class = "col-md-8 col-md-offset-2 col-xs-12">
-			<div><h1>Give please some time and answer our questions!</h1></div>
-			<div class="but"><button type="button" class="btn btn-primary btt" 
-			(click)="showQuestion1()">go to questions!</button></div>
-		</div>
-	</div>
-	<div class="row myrow" [hidden]="showQues1">
-		<div class = "col-md-8 col-md-offset-2 col-xs-12 text-center">
-			<div><h1>1 Enter your data, please!</h1></div>
+			<div class="modal-content text-center">
 				<div>
-					<form class="form-horizontal">
-						<div class="form-group" >
-							<input type="text" class="form-control" id="firstname" #newFirstname
-							placeholder="First name">
-						</div>
-						<div class="form-group">
-							<input type="text" class="form-control" id="lastname" #newLastname
-							placeholder="Last name">
-						</div>
-						<div class="form-group">
-							<input type="email" class="form-control" id="email" #newEmail
-                           	placeholder="Email">
-						</div>
-						<div class="form-group bat">
-							<button type="submit" class="btn btn-default btt" (click)="showQuestion2(newFirstname, newLastname, newEmail)">Go to next question...</button>
-						</div>
-					</form>
-				</div>
-		  </div>
-	</div>
-	<div class="row myrow" [hidden]="showQues2">
-		<div class = "col-md-8 col-md-offset-2 col-xs-12 text-center">
-			<div><h1>2 Do you like the weather today?</h1></div>
-			<div>
-				<form class="form-horizontal">
-					<label class="radio  myform">
-						<input type="radio" name="r1" ng-model="r1" value="yes"> YES
-					</label>
-					<label class="radio  myform">
-						<input type="radio" name="r1" ng-model="r1" value="no"> NO
-					</label>
-					<div class="but"><button type="button" class="btn btn-primary btt" (click)="showQuestion3()">Go to next question...</button></div>
-				</form>
+					<h1>!חבר יקר<br>...אנא השב על השאלות <br>!דעתך חשובה לנו</h1>
+					<button type="button" class="btn btn-primary btt" (click)="showQuestion1()">
+					 ...ללכת לשאלות
+					</button>
+			 	</div>
 			</div>
-		</div>
-	</div>
-	<div class="row myrow" [hidden]="showQues3yes">
-		<div class = "col-md-8 col-md-offset-2 col-xs-12 text-center">
-			<div><h1>3 And why you don't like the weather?</h1>
-			</div>
-			<div>
-				<form class="form-horizontal">
-					<label class="checkbox  myform">
-						<input type="checkbox" id="checkbox1" value="option1"> It's raining! </label>
-					<label class="checkbox  myform">
-						<input type="checkbox" id="checkbox2" value="option2"> Very hot! </label>
-					<label class="checkbox  myform">
-						<input type="checkbox" id="checkbox3" value="option3"> Very cold! </label>
-					<label class="checkbox  myform">
-						<input type="checkbox" id="checkbox4" value="option4"> I find it difficult to answer ...</label>
-					<div class="but"><button type="button" class="btn btn-primary btt" (click)="showQuestion4()">Go to next question...</button>		</div>
-				</form>
-			</div>
-		</div>
-	</div>
-
-	<div class="row myrow" [hidden]="showQues3no">
-		<div class = "col-md-8 col-md-offset-2 col-xs-12 text-center">
-			<div><h1>3 And why you like the weather?</h1>
-			</div>
-			<div class="text-center">
-				<form class="form">
-					<label class="checkbox  myform">
-						<input type="checkbox" id="checkbox1" value="option1"> Because the sun is shining!</label>
-					<label class="checkbox  myform">
-						<input type="checkbox" id="checkbox2" value="option2"> Because a warm day! </label>
-					<label class="checkbox  myform">
-						<input type="checkbox" id="checkbox3" value="option3"> Simply, I have a good mood! </label>
-					<div class="but">
-						<button type="button" class="btn btn-primary btt" (click)="showQuestion4()">Go to next question...</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-    <div class="row myrow" [hidden]="showQues4">
-		<div class = "col-md-8 col-md-offset-2 col-xs-12 text-center">
-			<div><h1>4 Write your wishes!</h1>
-			</div>
-			<div>
-				<form class="form">
-					<textarea class="form-control" rows="3"></textarea>
-					<div class="but">
-						<button type="button" class="btn btn-primary btt" (click)="result()">Go to result...</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	<div class="row myrow" [hidden]="showRes">
-		<div class = "col-md-8 col-md-offset-2 col-xs-12">
-			<div><h1>Thank you for your time!</h1></div>
-			<div><h2>Your answers:</h2></div>
-			<div class="but"><button type="button" class="btn btn-primary btt" (click)="exit()">Exit</button>
 		</div>
 	</div>
 </div>
+<div class="container"> 
+    <div class="row myrow" [hidden]="showQues1">
+		<div class = "col-md-8 col-md-offset-2 col-xs-12 text-center">
+			<div class="modal-content">		
+				<div><h1>?באיזו מידה אתה מרוצה מהשירות שקיבלת</h1></div>
+				<div class="rating">
+				<a class="star" href="#"><i class="fa fa-star push" aria-hidden="true"></i>
+				</a>
+				<a  class="star" href="#" (click)="pushstar_1_2()">
+				<i class="fa fa-star" aria-hidden="true" 
+				[ngClass]="{push: pushstar1_2}"></i>
+				</a>
+				<a class="star" href="#" (click)="pushstar_1_3()">
+				<i class="fa fa-star" aria-hidden="true" 
+				[ngClass]="{push: pushstar1_3}"></i>
+				</a>
+				<a class="star" href="#" (click)="pushstar_1_4()">
+				<i class="fa fa-star" aria-hidden="true" 
+				[ngClass]="{push: pushstar1_4}"></i>
+				</a>
+				<a class="star" href="#" (click)="pushstar_1_5()">
+				<i class="fa fa-star" aria-hidden="true" 
+				[ngClass]="{push: pushstar1_5}"></i>
+				</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row myrow" [hidden]="showQues1bad">
+		<div class = "col-md-8 col-md-offset-2 col-xs-12 text-center">
+			<div class="modal-content">		
+				<div><h1>?למה לא מרוצה</h1></div>
+				<textarea class="form-control" rows="3"></textarea>
+                <button type="button" class="btn btn-primary btt" (click)="showQuestion2()">...הבא</button>
+			</div>
+		</div>
+	</div>
+	<div class="row myrow" [hidden]="showQues2" id="ques-2">
+		<div class = "col-md-8 col-md-offset-2 col-xs-12 text-center">
+			<div class="modal-content">		
+				<div><h1>?באיזו מידה אתה מרוצה מזמן ההמתנה</h1></div>
+				<div class="rating">
+				<a class="star" href="#"><i class="fa fa-star push" aria-hidden="true"></i>
+				</a>
+				<a  class="star" href="#" (click)="pushstar_2_2()">
+				<i class="fa fa-star" aria-hidden="true" 
+				[ngClass]="{push: pushstar2_2}"></i>
+				</a>
+				<a class="star" href="#" (click)="pushstar_2_3()">
+				<i class="fa fa-star" aria-hidden="true" 
+				[ngClass]="{push: pushstar2_3}"></i>
+				</a>
+				<a class="star" href="#" (click)="pushstar_2_4()">
+				<i class="fa fa-star" aria-hidden="true" 
+				[ngClass]="{push: pushstar2_4}"></i>
+				</a>
+				<a class="star" href="#" (click)="pushstar_2_5()">
+				<i class="fa fa-star" aria-hidden="true" 
+				[ngClass]="{push: pushstar2_5}"></i>
+				</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row myrow" [hidden]="showQues2bad">
+		<div class = "col-md-8 col-md-offset-2 col-xs-12 text-center">
+			<div class="modal-content">		
+				<div><h1>?למה לא מרוצה</h1></div>
+				<textarea class="form-control" rows="3"></textarea>
+                <button type="button" class="btn btn-primary btt" (click)="exitandsave()">...הבא</button>
+			</div>
+		</div>
+	</div>
+	<div class="row myrow" [hidden]="exit">
+		<div class = "col-md-8 col-md-offset-2 col-xs-12">
+			<div class="modal-content text-center">
+				<div>
+					<h1>!תודה על תשומת הלב שלך</h1>
+					<button type="button" class="btn btn-primary btt">
+					 יציאה
+					</button>
+			 	</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 
