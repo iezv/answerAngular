@@ -1,7 +1,7 @@
 h1{
-	margin-top: 30px;
-	margin-bottom: 30px;
-	color: #404d5a;
+	margin-top: 20px;
+    color: #404d5a;
+    font-size: 25px;
 }
 
 p{
@@ -10,7 +10,7 @@ p{
 	font-size: 16px;
 }
 .myrow{
-     margin-top: 20px;
+	margin-top: 20px;
 }
 
 .btt{
@@ -20,15 +20,16 @@ p{
 	font-size: 20px;
 	font-weight: bold;
 	border-radius: 5px;
-    color: #d0d5db;
-    margin-top: 20px;
-  }
+	color: #d0d5db;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
 
 .btt:hover,
 .btt:focus{
-  color: #ffffff;
-  background-color: #333333;
-  border-color: #333333;
+	color: #ffffff;
+	background-color: #333333;
+	border-color: #333333;
 }
 
 .myform{
@@ -37,13 +38,28 @@ p{
 }
 .modal-content{
 	padding: 20px;
+	left: 40px;
+	right: 40px;
+	height: 240px;
+	max-width: 600px;
 }
+.ball-left{
+	background-image: url(img/balloon-left.png);
+	background-repeat: no-repeat;
+	}
+.ball-right{
+	background-image: url(img/balloon-right.png);
+	background-repeat: no-repeat;
+}
+
 .fa{
 	font-size: 30px;
 }
 
 .fa-star{
 	color: #b0b7c6;
+	margin-bottom: 30px;
+	margin-top: 50px;
 }
 
 .fa-star:hover,
@@ -54,3 +70,7 @@ p{
 .push{
 	color: #404d5a;
 }
+.downblock{
+	margin-top: 50px;
+}
+

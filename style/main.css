@@ -1,7 +1,7 @@
 body {
 	font-family: 'Source Sans Pro', sans-serif;
 	background: linear-gradient(to top, #708090, #d0d5db);
-   /*background-image: url(../img/sky-10.gif);*/
+   padding-bottom: 40px;
 
 }
 img {
@@ -12,4 +12,5 @@ img {
 .container{
 	margin-left: 40px;
 	margin-right: 40px;
+	text-align: center;
 }

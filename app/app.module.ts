@@ -5,13 +5,17 @@ import { Router }        from '@angular/router';
 import { OnInit }        from '@angular/core';
 import { AppComponent }   from './app.component';
 import { QuestionsComponent } from './questions.component';
+import { Angular2AutoScroll } from '../directives/angular2-auto-scroll.directive';
 
 @NgModule({
   imports:      [ BrowserModule,
-                  FormsModule ],
+                  FormsModule,
+                                   ],
   declarations: [ AppComponent,
                   QuestionsComponent,
-                  ],
-  bootstrap:    [ AppComponent ]
+
+                                   ],
+  bootstrap:    [ AppComponent, 
+                                   ]
 })
 export class AppModule { }
