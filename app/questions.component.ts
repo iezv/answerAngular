@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { Angular2AutoScroll } from '../directives/angular2-auto-scroll.directive';
+import { Router, NavigationEnd } from "@angular/router";
+import { Angular2AutoScroll } from 'angular2-auto-scroll/lib/angular2-auto-scroll.directive';
+
 
 @Component({
 	selector: 'questions',
 	templateUrl: 'app/template/questions.component.html',
 	styleUrls: ['app/style/questions.component.css'],
-
-
-})
+   })
 
 export class QuestionsComponent {
 	showHello = false;
@@ -16,7 +16,12 @@ export class QuestionsComponent {
 	showQues2 = true;
 	showQues2bad = true;
 	exit = true;
-		
+
+	showAnswer1 = true;
+	showAnswer1bad = true;
+	showAnswer2 = true;
+	showAnswer2bad = true;
+	
 	pushstar1_2 = false;
 	pushstar1_3 = false;
 	pushstar1_4 = false;
@@ -27,33 +32,123 @@ export class QuestionsComponent {
 	pushstar2_4 = false;
 	pushstar2_5 = false;
 
+	writerhello = true;
+	writer1 = true;
+	writer1bad = true;
+	writer2 = true;
+	writer2bad = true;
+
+	tick1 = true;
+	tick2 = true;
+	tick1bad = true;
+	tick2bad = true;
+
 	answers = new Answers();
 
-	constructor(){
+	constructor() {
+			
 	}
 
 
 	public showQuestion1(){
-		this.showQues1 = false;
+		let timeoutId1 = setTimeout(() => {  
+			this.writerhello=false;
+		}, 500);
+        let timeoutId2 = setTimeout(() => {  
+			this.showQues1=false;
+		}, 2000);
+		 let timeoutId3 = setTimeout(() => {  
+			this.writerhello=true;
+		}, 2000);
+		 let timeoutId4 = setTimeout(() => {  
+			this.showAnswer1=false;
+		}, 3000);
 	}
 
 	public showQuestion1bad(){
-		this.showQues1bad = false;
+        let timeoutId1 = setTimeout(() => {  
+			this.tick1=false;
+		}, 2000);
+        let timeoutId2 = setTimeout(() => {  
+			this.writer1=false;
+		}, 3000);
+        let timeoutId3 = setTimeout(() => {  
+			this.writer1=true;
+		}, 5000);
+        let timeoutId4 = setTimeout(() => {  
+			this.showQues1bad = false;
+		}, 5000);
+         let timeoutId5 = setTimeout(() => {  
+			this.showAnswer1bad=false;
+		}, 6000);
+
 	}
 	
 	public showQuestion2(bad1:  HTMLInputElement){
-		this.showQues2 = false;
+		if(bad1==null){
+			 let timeoutId1 = setTimeout(() => {  
+			this.tick1=false;
+		}, 2000);
+		}
+        let timeoutId1 = setTimeout(() => {  
+			this.tick1bad=false;
+		}, 2000);
+        let timeoutId2 = setTimeout(() => {  
+			this.writer1bad=false;
+		}, 3000);
+		let timeoutId3 = setTimeout(() => {  
+			this.writer1bad=true;
+		}, 5000);
+		let timeoutId4 = setTimeout(() => {  
+			this.showQues2 = false;
+		}, 5000);
+         let timeoutId5 = setTimeout(() => {  
+			this.showAnswer2=false;
+		}, 6000);
+
 		if (bad1!=null){
 			this.answers.answer1bad = bad1.value;
 		}
 	}
 
+
 	public showQuestion2bad(){
-		this.showQues2bad = false;
+        let timeoutId1 = setTimeout(() => {  
+			this.tick2=false;
+		}, 2000);
+        let timeoutId2 = setTimeout(() => {  
+			this.writer2=false;
+		}, 3000);
+        let timeoutId3 = setTimeout(() => {  
+			this.writer2=true;
+		}, 5000);
+        let timeoutId4 = setTimeout(() => {  
+			this.showQues2bad = false;
+		}, 5000);
+         let timeoutId5 = setTimeout(() => {  
+			this.showAnswer2bad=false;
+		}, 6000);
 	}
 
 	public exitandsave(bad2:  HTMLInputElement){
-		this.exit = false;
+	 if(bad2==null){
+		let timeoutId1 = setTimeout(() => {  
+			this.tick2=false;
+		}, 2000);}
+	 
+        let timeoutId1 = setTimeout(() => {  
+			this.tick2bad=false;
+		}, 2000);
+        let timeoutId2 = setTimeout(() => {  
+			this.writer2bad=false;
+		}, 3000);
+		let timeoutId3 = setTimeout(() => {  
+			this.writer2bad=true;
+		}, 5000);
+		let timeoutId4 = setTimeout(() => {  
+			this.exit = false;
+		}, 5000);
+         
 		if (bad2!=null){
 			this.answers.answer2bad = bad2.value;
 		}
@@ -68,6 +163,10 @@ export class QuestionsComponent {
 		this.showQues2 = true;
 		this.showQues2bad = true;
 		this.exit = true;
+		this.showAnswer1 = true;
+		this.showAnswer2 = true;
+		this.showAnswer1bad = true;
+		this.showAnswer2bad = true;
 	}
 	
 	public pushstar_1_1(){
@@ -139,14 +238,6 @@ export class QuestionsComponent {
 		this.pushstar2_4 = true;
 		this.pushstar2_5 = true;
 		this.exitandsave(null);
-	}
-
-	public sleep(millis) {
-		var t = (new Date()).getTime();
-		var i = 0;
-		while (((new Date()).getTime() - t) < millis) {
-			i++;
-		}
 	}
 }
 
