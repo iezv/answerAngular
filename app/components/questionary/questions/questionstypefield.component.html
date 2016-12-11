@@ -1,0 +1,17 @@
+<div class="row myrow">
+	<div class = "col-md-10 col-md-offset-1 col-xs-12 text-center">
+		<div class="bubble-left">		
+			<div><h1>{{ question }}</h1></div>
+		</div>
+	</div>
+</div>
+<div class="row myrow" [hidden]="answerballoon">
+	<div class = "col-md-10 col-md-offset-1 col-xs-12 text-center">
+		<div class="bubble-right">	
+			<textarea class="form-control" rows="2" placeholder="...תכתוב פה" #textanswer></textarea>
+			<button type="button" class="btn btn-primary btt" id="bottom" (click)=saveanswer(textanswer.value)>...הבא</button>
+			<img class="ticks" [hidden]="tick" src="../../../img/ticks.png" alt="ticks">
+		</div>
+		<div [hidden]="writer" class="writer">...כותב לך</div>
+	</div>
+</div>

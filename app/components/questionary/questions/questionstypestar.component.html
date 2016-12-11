@@ -1,0 +1,47 @@
+<div class="row myrow" >
+	<div class = "col-md-10 col-md-offset-1 col-xs-12 text-center">
+		<div class="bubble-left">		
+			<div><h1>{{ question }}</h1></div>
+		</div>
+	</div>
+</div>
+<div class="row myrow" [hidden]="answerballoon">
+	<div class = "col-md-10 col-md-offset-1 col-xs-12 text-center">
+		<div class="bubble-right">		
+			<div class="rating">
+				<a class="star" href="#" id="bottom"
+				(click)="pushstar(1)">
+				    <i class="fa fa-star push" aria-hidden="true">
+				<sub>1</sub></i>
+				</a>
+				<a href="#" class="star" 
+				(click)="pushstar(2)">
+					<i class="fa fa-star" aria-hidden="true"
+					[ngClass]="{push: pushstar2}">
+				<sub>2</sub></i>
+				</a>
+				<a href="#" class="star" 
+				(click)="pushstar(3)">
+					<i class="fa fa-star" aria-hidden="true" 
+					[ngClass]="{push: pushstar3}">
+				<sub>3</sub></i>
+				</a>
+				<a  href="#" class="star" 
+				(click)="pushstar(4)">
+					<i class="fa fa-star" aria-hidden="true"
+					[ngClass]="{push: pushstar4}">
+					<sub>4</sub></i>
+				</a>
+				<a  href="#" class="star" 
+				(click)="pushstar(5)" >
+					<i class="fa fa-star" aria-hidden="true"
+					aria-hidden="true" 
+				[ngClass]="{push: pushstar5}">
+				<sub>5</sub></i>
+				</a>
+				<img class="ticks" [hidden]="tick" src="../../../img/ticks.png" alt="ticks">
+			</div>
+		</div>
+		<div class="writer" [hidden]="writer">...כותב לך</div>
+	</div>
+</div>

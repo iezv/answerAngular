@@ -1,13 +1,19 @@
+
+.container-fluid{
+	padding-right: 25px;
+	padding-left: 25px;
+}
+
 h1{
 	color: #404d5a;
-	font-size: 20px;
+	font-size: 16px;
 	margin-top: 5px;
 }
 
 p{
 	font-weight: bold;
 	color: #404d5a;
-	font-size: 12px;
+	font-size: 16px;
 }
 sub{
 	font-size: 12px;
@@ -19,7 +25,7 @@ textarea{
 .ticks{
 	height: 2%;
 	position: relative;
-	left: 20px;
+	left: 15px;
 
 }
 .myrow{
@@ -48,7 +54,7 @@ textarea{
 }
 
 .fa{
-	font-size: 28px;
+	font-size: 25px;
 }
 
 .fa-star{
@@ -67,12 +73,16 @@ textarea{
 .writer{
 	text-align: left;
 }
+.mycheck{
+	text-align: left;
+	margin-left: 40px;
+}
 
 /*BUBBLE*/
 .bubble-left
 {
 position: relative;
-width: 260px;
+max-width: 250px;
 padding: 15px;
 background: #FFFFFF;
 -webkit-border-radius: 5px;
@@ -99,7 +109,7 @@ top: 6px;
 .bubble-right 
 {
 position: relative;
-width: 260px;
+max-width: 250px;
 left: 30px;
 
 padding: 15px;
@@ -129,5 +139,17 @@ top: 6px;
 	position: absolute;
 }
 
+/*CHECKBOXES*/
+input[type="checkbox"] {
+display:none;
+}
 
-
+input[type="checkbox"]{
+display:inline-block;
+width:16px;
+margin-right: 5px;
+height:16px;
+vertical-align:middle;
+cursor:pointer;
+border-radius: 2px;
+}

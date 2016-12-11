@@ -1,0 +1,54 @@
+<div class="container-fluid">
+<questions-hello
+     [hidden]="visualhello"
+     (onStart)="startquestion1($event)">
+</questions-hello>
+<questions-star 
+     [question]="questionstar1"
+     [hidden]="visualques1"
+     (onStart)="startquestion2($event)">
+</questions-star>
+<questions-field 
+     [question]="questionfield1"
+     [hidden]="visualques2"
+     (onStart)="startquestion3($event)">
+</questions-field>
+<questions-flag 
+     [question]="questionflag1"
+     [varanswers]="varanswerflag1"
+     [hidden]="visualques3"
+     (onStart)="startquestion4($event)">
+ </questions-flag>
+<questions-radio 
+     [question]="questionradio1"
+     [varanswers]="varanswerradio1"
+     [hidden]="visualques4"
+     (onStart)="startquestion5($event)">
+</questions-radio>
+<questions-star1 
+     [question]="questionstar2"
+     [hidden]="visualques5"
+     (onStart)="startquestion6($event)">
+</questions-star1>
+<questions-field1 
+     [question]="questionfield2"
+     [hidden]="visualques6"
+     (onStart)="startquestion7($event)">
+ </questions-field1>
+<questions-flag1 
+     [question]="questionflag2"
+     [varanswers]="varanswerflag2"
+     [hidden]="visualques7"
+     (onStart)="startquestion8($event)"
+     >
+ </questions-flag1>
+<questions-radio1 
+     [question]="questionradio2"
+     [varanswers]="varanswerradio2"
+     [hidden]="visualques8"
+     (onStart)="startend($event)">
+</questions-radio1>
+<questions-bye [hidden]="visualbye"
+               (onStartEnd)="end($event)">
+</questions-bye>
+</div>
