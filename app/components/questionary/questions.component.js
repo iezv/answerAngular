@@ -17,8 +17,11 @@ var questionstypestar1_component_1 = require('./questions/questionstypestar1.com
 var questionstypefield1_component_1 = require('./questions/questionstypefield1.component');
 var questionstypeflag1_component_1 = require('./questions/questionstypeflag1.component');
 var questionstyperadio1_component_1 = require('./questions/questionstyperadio1.component');
+var answer_service_1 = require('./../../shared/answer.service');
 var QuestionsComponent = (function () {
-    function QuestionsComponent() {
+    function QuestionsComponent(_elRef, answerservice) {
+        this._elRef = _elRef;
+        this.answerservice = answerservice;
         this.visualhello = false;
         this.visualques1 = true;
         this.visualques2 = true;
@@ -30,18 +33,18 @@ var QuestionsComponent = (function () {
         this.visualques8 = true;
         this.visualbye = true;
         this.answers = [];
-        this.questionfield1 = 'questionfield1';
-        this.questionfield2 = 'questionfield2';
-        this.questionstar1 = 'questionstar1';
-        this.questionstar2 = 'questionstar2';
-        this.questionflag1 = 'questionflag1';
-        this.questionflag2 = 'questionflag2';
-        this.questionradio1 = 'questionradio1';
-        this.questionradio2 = 'questionradio2';
-        this.varanswerflag1 = ['answer1', 'answer2', 'ansrer3'];
-        this.varanswerflag2 = ['answer1', 'answer2'];
-        this.varanswerradio1 = ['answer1', 'answer2', 'ansrer3'];
-        this.varanswerradio2 = ['answer1', 'answer2'];
+        this.questionfield1 = 'למה לא מרוצה?';
+        this.questionfield2 = 'למה לא מרוצה?';
+        this.questionstar1 = 'באיזו מידה אתה מרוצה מהשירות שקיבלת?';
+        this.questionstar2 = 'באיזו מידה אתה מרוצה מזמן ההמתנה?';
+        this.questionflag1 = 'איזה מזג אוויר אתה אוהב?';
+        this.questionflag2 = 'איפה שמעת את החדשות?';
+        this.questionradio1 = 'באיזו תדירות אתה עושה את ספורט?';
+        this.questionradio2 = 'האם אתה מחשיב את עצמך בר מזל?';
+        this.varanswerflag1 = ['מוצף שמש', 'גשם', 'קריר'];
+        this.varanswerflag2 = ['טלוויזיה', 'עיתון'];
+        this.varanswerradio1 = ['לעתים קרובות', 'לעתים רחוקות', 'אני לא עושה בכלל'];
+        this.varanswerradio2 = ['כן', 'לא'];
     }
     /* Question1 - star */
     QuestionsComponent.prototype.startquestion1 = function () {
@@ -151,7 +154,9 @@ var QuestionsComponent = (function () {
         console.log('End questions');
         this.answers.push(this.radioQuestion2.question + ': ' + answer);
         console.log(this.answers);
+        this.answerservice.addAnswers(this.answers);
         this.visualbye = false;
+        this.scrollList();
     };
     QuestionsComponent.prototype.end = function () {
         this.visualhello = true;
@@ -164,6 +169,14 @@ var QuestionsComponent = (function () {
         this.visualques7 = true;
         this.visualques8 = true;
         this.visualbye = true;
+    };
+    QuestionsComponent.prototype.ngOnInit = function () {
+        this.scrollList();
+    };
+    QuestionsComponent.prototype.scrollList = function () {
+        jQuery(this._elRef.nativeElement).find('div', 'button', 'p', 'a').on('click', function () {
+            $("html, body").animate({ scrollTop: $('html, body, div').get(0).scrollHeight }, 1000);
+        });
     };
     __decorate([
         core_1.ViewChild(questionstypestar_component_1.QuestionsTypeStarComponent), 
@@ -202,8 +215,9 @@ var QuestionsComponent = (function () {
             selector: 'questions',
             templateUrl: 'app/components/questionary/questions.component.html',
             styleUrls: ['app/components/questionary/questions.component.css'],
+            providers: [answer_service_1.AnswerService],
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [core_1.ElementRef, answer_service_1.AnswerService])
     ], QuestionsComponent);
     return QuestionsComponent;
 }());

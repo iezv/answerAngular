@@ -1,7 +1,7 @@
 <div class="row myrow">
 	<div class = "col-md-10 col-md-offset-1 col-xs-12 text-center">
 		<div class="bubble-left">		
-			<div><h1>{{ question }}</h1></div>
+			<div><h1><bdo dir="rtl">{{ question }}</bdo></h1></div>
 		</div>
 	</div>
 </div>
@@ -11,8 +11,8 @@
 			<div class="radio mycheck">
 				<ul class="list-unstyled">
 					<li *ngFor="let varanswer of varanswers">
-						<label class="text-left">
-						<input ng-control="options" type="radio" value="{{ varanswer }}" [(ngModel)]="model">{{ varanswer }}
+						{{ varanswer }} <label class="text-left">
+						<input ng-control="options" type="radio" value="{{ varanswer }}" [(ngModel)]="model">
 						</label>
 					</li>
 				</ul>

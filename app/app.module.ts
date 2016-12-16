@@ -3,6 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { OnInit }        from '@angular/core';
 import { AppComponent }   from './app.component';
+import { HttpModule, Http, JsonpModule }    from  '@angular/http';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { AnswerSeedData } from './shared/answers.data';
+import { AnswerService } from './shared/answer.service';
 
 import { QuestionsComponent }   from './components/questionary/questions.component';
 import { QuestionsTypeHelloComponent }   from './components/questionary/questions/questionstypehello.component';
@@ -17,14 +21,14 @@ import { QuestionsTypeFlagComponent1 }   from './components/questionary/question
 import { QuestionsTypeByeComponent }   from './components/questionary/questions/questionstypebye.component';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
+  imports:      [ BrowserModule, FormsModule, HttpModule, JsonpModule,
+                  InMemoryWebApiModule.forRoot(AnswerSeedData)],
   declarations: [ AppComponent, QuestionsComponent,
                   QuestionsTypeHelloComponent, QuestionsTypeStarComponent, QuestionsTypeFieldComponent,
                   QuestionsTypeRadioComponent,  QuestionsTypeFlagComponent, QuestionsTypeByeComponent,
                   QuestionsTypeStarComponent1, QuestionsTypeFieldComponent1, QuestionsTypeRadioComponent1,  
-                  QuestionsTypeFlagComponent1,   
-                                      ],
-  bootstrap:    [ AppComponent, 
-                                   ]
+                  QuestionsTypeFlagComponent1],
+  providers:   [ AnswerService ], 
+  bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

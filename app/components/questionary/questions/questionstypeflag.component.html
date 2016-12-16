@@ -1,18 +1,18 @@
 <div class="row myrow">
 	<div class = "col-md-10 col-md-offset-1 col-xs-12 text-center">
 		<div class="bubble-left">		
-			<div><h1>{{ question }}</h1></div>
+			<div><h1><bdo dir="rtl">{{ question }}</bdo></h1></div>
 		</div>
 	</div>
 </div>
 <div class="row myrow" [hidden]="answerballoon">
 	<div class = "col-md-10 col-md-offset-1 col-xs-12 text-center">
 		<div class="bubble-right">	
-			<div class="checkbox mycheck">
+			<div class="checkbox mycheck mycheckboxdiv">
 				<ul class="list-unstyled">
 					<li *ngFor="let varanswer of varanswers; let i = index">
-						<label>
-							<input type="checkbox" class="dropdown-checkbox" [(ngModel)]="varanswer.isChecked" (change)="addAnswers(varanswer)" id="checkbox1" value="option1"> {{ varanswer }}<br/>
+						{{ varanswer }} <label> 
+							<input type="checkbox" class="dropdown-checkbox mycheckbox" [(ngModel)]="varanswer.isChecked" (change)="addAnswers(varanswer)" id="checkbox1" value="option1"><br/>
 						</label>
 					</li>
 				</ul>

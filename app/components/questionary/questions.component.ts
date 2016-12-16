@@ -1,4 +1,4 @@
-import { Component, EventEmitter, ViewChild } from '@angular/core';
+import { Component, EventEmitter, ViewChild, OnInit, ElementRef } from '@angular/core';
 import { QuestionsTypeStarComponent }   from './questions/questionstypestar.component';
 import { QuestionsTypeFieldComponent }   from './questions/questionstypefield.component';
 import { QuestionsTypeFlagComponent }   from './questions/questionstypeflag.component';
@@ -7,17 +7,19 @@ import { QuestionsTypeStarComponent1 }   from './questions/questionstypestar1.co
 import { QuestionsTypeFieldComponent1 }   from './questions/questionstypefield1.component';
 import { QuestionsTypeFlagComponent1 }   from './questions/questionstypeflag1.component';
 import { QuestionsTypeRadioComponent1 }   from './questions/questionstyperadio1.component';
+import { AnswerService } from './../../shared/answer.service';
 
+declare var jQuery: any;
 
 @Component({
 	selector: 'questions',
 	templateUrl: 'app/components/questionary/questions.component.html',
 	styleUrls: ['app/components/questionary/questions.component.css'],
+	providers: [AnswerService],
 	
 })
 
-
-export class QuestionsComponent {
+export class QuestionsComponent implements OnInit {
 
 	answers: string[];
 
@@ -46,21 +48,22 @@ export class QuestionsComponent {
 	visualques8 = true;
 	visualbye = true;
 	
-	constructor(){
+	constructor(private _elRef: ElementRef, 
+		        private answerservice: AnswerService){
 		this.answers = [];
-		this.questionfield1 = 'questionfield1';
-		this.questionfield2 = 'questionfield2';
-		this.questionstar1 = 'questionstar1';
-		this.questionstar2 = 'questionstar2';
-		this.questionflag1 = 'questionflag1';
-		this.questionflag2 = 'questionflag2';
-		this.questionradio1 = 'questionradio1';
-		this.questionradio2 = 'questionradio2';	
+		this.questionfield1 = 'למה לא מרוצה?';
+		this.questionfield2 = 'למה לא מרוצה?';
+		this.questionstar1 = 'באיזו מידה אתה מרוצה מהשירות שקיבלת?';
+		this.questionstar2 = 'באיזו מידה אתה מרוצה מזמן ההמתנה?';
+		this.questionflag1 = 'איזה מזג אוויר אתה אוהב?';
+		this.questionflag2 = 'איפה שמעת את החדשות?';
+		this.questionradio1 = 'באיזו תדירות אתה עושה את ספורט?';
+		this.questionradio2 = 'האם אתה מחשיב את עצמך בר מזל?';	
 
-		this.varanswerflag1 = ['answer1', 'answer2','ansrer3'];
-		this.varanswerflag2 = ['answer1', 'answer2'];
-		this.varanswerradio1 = ['answer1', 'answer2','ansrer3'];
-		this.varanswerradio2 = ['answer1', 'answer2'];
+		this.varanswerflag1 = ['מוצף שמש', 'גשם','קריר'];
+		this.varanswerflag2 = ['טלוויזיה', 'עיתון'];
+		this.varanswerradio1 = ['לעתים קרובות', 'לעתים רחוקות','אני לא עושה בכלל'];
+		this.varanswerradio2 = ['כן', 'לא'];
 	}
 
 	@ViewChild(QuestionsTypeStarComponent)
@@ -170,8 +173,8 @@ export class QuestionsComponent {
 			}, 2000);
 		}
 	}
-   
-    /* Question7 - field (bad) */
+
+	/* Question7 - field (bad) */
 	startquestion7(answer: string){
 		console.log('Start question7');
 		this.answers.push(this.fieldQuestion2.question+': '+answer);
@@ -183,7 +186,7 @@ export class QuestionsComponent {
 		}, 2000);
 	}
 
-    /* Question8 - flag */
+	/* Question8 - flag */
 	@ViewChild(QuestionsTypeRadioComponent1)
 	private radioQuestion2: QuestionsTypeRadioComponent1;
 
@@ -196,29 +199,38 @@ export class QuestionsComponent {
 		}, 1000);
 	}
 
-    startend(answer: string){
+	startend(answer: string){
 		console.log('End questions');
 		this.answers.push(this.radioQuestion2.question+': '+answer);
-        console.log(this.answers);
+		console.log(this.answers);
+		this.answerservice.addAnswers(this.answers);
 		this.visualbye = false;
+		this.scrollList();
 	}
 
 	end(){
-	this.visualhello = true;
-    this.visualques1 = true;
-	this.visualques2 = true;
-	this.visualques3 = true;
-	this.visualques4 = true;
-	this.visualques5 = true;
-	this.visualques6 = true;
-	this.visualques7 = true;
-	this.visualques8 = true;
-	this.visualbye = true;
+		this.visualhello = true;
+		this.visualques1 = true;
+		this.visualques2 = true;
+		this.visualques3 = true;
+		this.visualques4 = true;
+		this.visualques5 = true;
+		this.visualques6 = true;
+		this.visualques7 = true;
+		this.visualques8 = true;
+		this.visualbye = true;
 	}
 
-	
-}
+	ngOnInit():any{
+		this.scrollList();
+	}
 
+	scrollList(){
+		jQuery(this._elRef.nativeElement).find('div', 'button', 'p', 'a').on('click', function(){
+			$("html, body").animate({scrollTop: $('html, body, div').get(0).scrollHeight}, 1000);
+		});	
+	}
+}
 
 
 
