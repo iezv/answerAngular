@@ -221,6 +221,14 @@ export class QuestionsComponent implements OnInit {
 		this.visualbye = true;
 	}
 
+	defaultExit(){
+		if (this.answers.length > 0)
+		{this.answerservice.addAnswers(this.answers);}
+	    let timeoutId1 = setTimeout(() => {  
+			this.end();
+		}, 2000);
+	 }
+
 	ngOnInit():any{
 		this.scrollList();
 	}

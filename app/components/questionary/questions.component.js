@@ -170,6 +170,15 @@ var QuestionsComponent = (function () {
         this.visualques8 = true;
         this.visualbye = true;
     };
+    QuestionsComponent.prototype.defaultExit = function () {
+        var _this = this;
+        if (this.answers.length > 0) {
+            this.answerservice.addAnswers(this.answers);
+        }
+        var timeoutId1 = setTimeout(function () {
+            _this.end();
+        }, 2000);
+    };
     QuestionsComponent.prototype.ngOnInit = function () {
         this.scrollList();
     };
