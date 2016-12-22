@@ -1,0 +1,82 @@
+<div class="row myrow">
+	<div class = "col-md-10 col-md-offset-1 col-xs-12 text-center">
+		<div class="bubble-left">		
+			<div><h1>{{ question.title }}</h1></div>
+		</div>
+	</div>
+</div>
+
+<div class="row myrow" type="0">
+	<div class = "col-md-10 col-md-offset-1 col-xs-12 text-center">
+		<div class="bubble-right">		
+			<button type="button" class="btn btn-primary btt">OK</button>
+		</div>
+		<div class="writer">...כותב לך</div>
+	</div>
+</div>
+
+<div class="row myrow" type="1">
+	<div class = "col-md-10 col-md-offset-1 col-xs-12 text-center">
+		<div class="bubble-right">		
+			<div class="rating">
+				<a class="star" href="#" id="bottom">
+				    <i class="fa fa-star push" aria-hidden="true"><sub>1</sub></i></a>
+				<a href="#" class="star"><i class="fa fa-star" aria-hidden="true"><sub>2</sub></i></a>
+				<a href="#" class="star"><i class="fa fa-star" aria-hidden="true"><sub>3</sub></i></a>
+				<a  href="#" class="star"><i class="fa fa-star" aria-hidden="true"><sub>4</sub></i></a>
+				<a href="#" class="star"><i class="fa fa-star" aria-hidden="true"	aria-hidden="true"><sub>5</sub></i></a>
+				<img class="ticks" src="../../../img/ticks.png" alt="ticks">
+			</div>
+		</div>
+		<div class="writer">...כותב לך</div>
+	</div>
+</div>
+
+<div class="row myrow" type="2">
+	<div class = "col-md-10 col-md-offset-1 col-xs-12 text-center">
+		<div class="bubble-right">	
+			<div class="radio mycheck">
+				<ul class="list-unstyled">
+					<li *ngFor="let answer of answers">
+						{{ answer.title }} <label class="text-left">
+						<input ng-control="options" type="radio" value="{{ answer }}">
+						</label>
+					</li>
+				</ul>
+			</div>
+			<button type="button" class="btn btn-primary btt" id="bottom" (click)=saveanswer()>...הבא</button>
+			<img class="ticks" src="../../../img/ticks.png" alt="ticks" >
+		</div>
+		<div class="writer">...כותב לך</div>
+	</div>
+</div>
+
+<div class="row myrow" type="3">
+	<div class = "col-md-10 col-md-offset-1 col-xs-12 text-center">
+		<div class="bubble-right">	
+			<div class="checkbox mycheck mycheckboxdiv">
+				<ul class="list-unstyled">
+					<li *ngFor="let answer of answers">
+						{{ answer.title }} <label> 
+							<input type="checkbox" class="dropdown-checkbox mycheckbox" id="checkbox1" value="option1"><br/>
+						</label>
+					</li>
+				</ul>
+			</div>
+			<button type="button" class="btn btn-primary btt" id="bottom" (click)="saveanswer()">...הבא</button>
+			<img class="ticks" src="../../../../img/ticks.png" alt="ticks">
+		</div>
+		<div class="writer">...כותב לך</div>
+	</div>
+</div>
+
+<div class="row myrow" type="4">
+	<div class = "col-md-10 col-md-offset-1 col-xs-12 text-center">
+		<div class="bubble-right">	
+			<textarea class="form-control" rows="2" placeholder="...תכתוב פה" #textanswer></textarea>
+			<button type="button" class="btn btn-primary btt" id="bottom">...הבא</button>
+			<img class="ticks" src="../../../img/ticks.png" alt="ticks">
+		</div>
+		<div class="writer">...כותב לך</div>
+	</div>
+</div>

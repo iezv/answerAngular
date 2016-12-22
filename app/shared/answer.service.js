@@ -15,7 +15,8 @@ require('rxjs/add/operator/toPromise');
 var AnswerService = (function () {
     function AnswerService(http) {
         this.http = http;
-        this.apiUrl = 'api/answers';
+        this.apiUrl_quest = 'https://panel-repatriation.rhcloud.com/surveyuser/';
+        this.apiUrl_answer = 'api/sendExecutedSurvey';
         console.log('AnswerService initializes...');
     }
     AnswerService.prototype.addAnswers = function (answers) {
@@ -23,12 +24,18 @@ var AnswerService = (function () {
         //   console.log(answers);
         return this.post(answers);
     };
+    AnswerService.prototype.getQuestionnary = function () {
+        return this.http.get(this.apiUrl_quest + 'getSurvey/smk2')
+            .toPromise()
+            .then(function (res) { return res.json().data; })
+            .catch(this.handleError);
+    };
     AnswerService.prototype.post = function (answers) {
         var body = JSON.stringify(answers);
         console.log(body);
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
-        return this.http.post(this.apiUrl, body, options)
+        return this.http.post(this.apiUrl_answer, body, options)
             .toPromise()
             .then(function (res) { return answers; })
             .catch(this.handleError);

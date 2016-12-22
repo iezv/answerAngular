@@ -1,0 +1,1 @@
+{"version":3,"file":"question-list.component.js","sourceRoot":"","sources":["question-list.component.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,qBAAwC,eAAe,CAAC,CAAA;AAWxD;IACC,iCAAiC;IAEjC;IACC,CAAC;IAVH;QAAC,gBAAS,CAAC;YACV,QAAQ,EAAE,eAAe;YACzB,WAAW,EAAE,mEAAmE;YAChF,SAAS,EAAE,CAAC,oDAAoD,CAAC;SAChE,CAAC;;6BAAA;IASH,4BAAC;AAAD,CAAC,AAPD,IAOC;AAPY,6BAAqB,wBAOjC,CAAA"}

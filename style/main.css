@@ -1,6 +1,11 @@
+html{
+	background: #708090;
+	height: 100%;
+}
+
 body {
 	font-family: 'Source Sans Pro', sans-serif;
-	background: linear-gradient(to top, #708090, #d0d5db);
+	background: transparent;
    padding-bottom: 40px;
 
 }

@@ -9,30 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var QuestionsTypeByeComponent = (function () {
-    function QuestionsTypeByeComponent() {
-        this.onStartEnd = new core_1.EventEmitter();
+var QuestionListComponent = (function () {
+    //@Input() questions: Question[];
+    function QuestionListComponent() {
     }
-    QuestionsTypeByeComponent.prototype.saveresult = function () {
-        var _this = this;
-        console.log('end questions!');
-        var timeoutId1 = setTimeout(function () {
-            _this.onStartEnd.emit();
-        }, 1700);
-    };
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], QuestionsTypeByeComponent.prototype, "onStartEnd", void 0);
-    QuestionsTypeByeComponent = __decorate([
+    QuestionListComponent = __decorate([
         core_1.Component({
-            selector: 'questions-bye',
-            templateUrl: 'app/components/questionary/questions/questionstypebye.component.html',
+            selector: 'question-list',
+            templateUrl: 'app/components/questionary/questions/question-list.component.html',
             styleUrls: ['app/components/questionary/questions.component.css'],
         }), 
         __metadata('design:paramtypes', [])
-    ], QuestionsTypeByeComponent);
-    return QuestionsTypeByeComponent;
+    ], QuestionListComponent);
+    return QuestionListComponent;
 }());
-exports.QuestionsTypeByeComponent = QuestionsTypeByeComponent;
-//# sourceMappingURL=questionstypebye.component.js.map
+exports.QuestionListComponent = QuestionListComponent;
+//# sourceMappingURL=question-list.component.js.map
